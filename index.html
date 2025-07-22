@@ -5,12 +5,9 @@
   <title>Roza — Курс по блогингу</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Manrope', sans-serif;
@@ -20,7 +17,7 @@
     }
 
     section {
-      background: rgba(0, 0, 0, 0.3); /* затемняющая маска */
+      background: rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(14px);
       border-radius: 14px;
       overflow: hidden;
@@ -33,18 +30,11 @@
       animation: fadeInUp 1s forwards;
     }
 
-    section:nth-child(2) { animation-delay: 0.1s; }
-    section:nth-child(3) { animation-delay: 0.2s; }
-    section:nth-child(4) { animation-delay: 0.3s; }
-
     @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    h1, h2, h3 {
+    h2, h3 {
       text-align: center;
       margin-bottom: 10px;
       color: #ffffff;
@@ -58,13 +48,14 @@
       font-weight: 500;
       color: #f1f1f1;
       text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-      margin: 0 auto;
     }
 
     .avatar-wrapper {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
       margin: 20px 0;
+      gap: 12px;
     }
 
     .avatar-frame img {
@@ -72,8 +63,23 @@
       height: 160px;
       border-radius: 50%;
       object-fit: cover;
-      display: block;
       box-shadow: 0 0 20px rgba(255, 192, 203, 0.3);
+    }
+
+    .insta-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse 2.5s infinite;
+    }
+
+    .insta-circle img {
+      width: 22px;
+      height: 22px;
     }
 
     .btn {
@@ -94,21 +100,7 @@
       gap: 8px;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 16px rgba(255, 144, 194, 0.6);
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 6px rgba(255,144,194,0.4); }
-      50% { box-shadow: 0 0 16px rgba(255,144,194,0.8); }
-      100% { box-shadow: 0 0 6px rgba(255,144,194,0.4); }
-    }
-
-    .btn img {
-      width: 18px;
-      height: 18px;
-    }
+    .btn i { font-size: 18px; }
 
     ul {
       list-style: none;
@@ -117,16 +109,61 @@
       line-height: 1.6;
       font-weight: 500;
       text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-      margin: 0 auto;
       color: #fff;
     }
 
     ul li {
-      margin: 5px 0;
+      margin: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    ul li::before {
-      content: "💗 ";
+    ul li i {
+      font-size: 16px;
+      color: #ff90c2;
+    }
+
+    .carousel {
+      overflow-x: auto;
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      scroll-snap-type: x mandatory;
+      justify-content: center;
+    }
+
+    .card {
+      min-width: 240px;
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 16px 12px;
+      scroll-snap-align: center;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(255,144,194,0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card h3 {
+      margin-bottom: 6px;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: #ddd;
+      margin: 4px 0;
+    }
+
+    .card .price {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #fff;
     }
 
     footer {
@@ -140,87 +177,106 @@
       color: #aaa;
       text-decoration: underline dotted;
     }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 6px rgba(255,144,194,0.4); }
+      50% { box-shadow: 0 0 16px rgba(255,144,194,0.8); }
+      100% { box-shadow: 0 0 6px rgba(255,144,194,0.4); }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Блок 1 -->
-  <section>
-    <h2>Я Roza 👑</h2>
-    <div class="avatar-wrapper">
-      <div class="avatar-frame">
-        <img src="avatar.JPG" alt="Roza">
-      </div>
-    </div>
-    <p>Легкоатлет, блогер и твой проводник в мир энергии и трансформации.
-Пора превратить мечты в цель, а цель — в результат. </p>
-    <div style="text-align:center;">
-      <a href="https://www.instagram.com/roziii_01" class="btn" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram">
-        Смотреть Instagram
-      </a>
-    </div>
-  </section>
-
-  
-
-  <!-- Блок: Telegram-канал с тренировками + компактная карусель -->
+<!-- Hero -->
 <section>
-  <h2>💪 Telegram-канал с тренировками</h2>
+  <h2>Я Roza 👑</h2>
+  <div class="avatar-wrapper">
+    <div class="avatar-frame">
+      <img src="avatar.JPG" alt="Roza">
+    </div>
+    <a href="https://www.instagram.com/rrrrrrrrrrrrrrrrrrrrr_n?igsh=MTEzMzJnejU4ZmNuZQ==" target="_blank" class="insta-circle">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram">
+    </a>
+  </div>
+  <p>Легкоатлет, блогер и твой проводник в мир энергии и трансформации. Пора превратить мечты в цель, а цель — в результат.</p>
+  <div style="text-align:center;">
+    <a href="https://messenger.online.sberbank.ru/sl/PKOdouHQWagQERHcw" class="btn" target="_blank">
+      <i class="bi bi-gift"></i> Поддержать меня
+    </a>
+  </div>
+</section>
+
+<!-- Реклама и сотрудничество -->
+<section>
+  <h2><i class="bi bi-megaphone"></i> Реклама и сотрудничество</h2>
+  <p>
+    Делаю рекламу, за которую не стыдно — и которая действительно работает.<br>
+    💬 Интеграции, промо, партнёрства — открыта к коммерческим предложениям.<br>
+    🚫 Личные сообщения, знакомства, съёмки — не по адресу.<br>
+    <strong>Менеджер ответит на все вопросы, включая стоимость размещения.</strong>
+  </p>
+  <div style="text-align:center;">
+    <a href="https://t.me/manager_13_m" class="btn" target="_blank">
+      <i class="bi bi-person-lines-fill"></i> Написать менеджеру
+    </a>
+  </div>
+</section>
+
+<!-- Приватный канал -->
+<section>
+  <h2><i class="bi bi-lock"></i> Приватный канал</h2>
+  <p>Там — всё, что не попадает в соцсети:</p>
+  <ul>
+    <li><i class="bi bi-camera"></i> Закулисье и будни</li>
+    <li><i class="bi bi-lightbulb"></i> Микроинструкции и мотивация</li>
+  </ul>
+  <div style="text-align:center;">
+    <a href="https://t.me/+FT2_fUZFerQ2ZTli" class="btn" target="_blank">
+      <i class="bi bi-telegram"></i> Войти в канал
+    </a>
+  </div>
+</section>
+
+<!-- Тренировки + Карусель -->
+<section>
+  <h2><i class="bi bi-dumbbell"></i> Telegram-канал с тренировками</h2>
   <p>Всё, что нужно, чтобы привести тело в форму — в одном месте:</p>
   <ul>
-    <li>🏋️ Рекомендации и советы по тренировкам</li>
-    <li>🎥 Видео-тренировки на каждый уровень</li>
-    <li>🥗 Планы питания под разные цели</li>
-    <li>🍱 Рецепты для набора массы и похудения</li>
+    <li><i class="bi bi-heart-pulse"></i> Рекомендации и советы по тренировкам</li>
+    <li><i class="bi bi-play-circle"></i> Видео-тренировки на каждый уровень</li>
+    <li><i class="bi bi-egg-fried"></i> Планы питания под разные цели</li>
+    <li><i class="bi bi-egg-fried"></i> Рецепты для набора массы и похудения</li>
   </ul>
 
-  <!-- Карусель -->
-  <div style="overflow-x: auto; display: flex; gap: 12px; padding: 10px 0; scroll-snap-type: x mandatory; justify-content: center;">
-    <div style="min-width: 240px; flex-shrink: 0; background: rgba(255,255,255,0.08); border-radius: 14px; padding: 16px 12px; scroll-snap-align: center; text-align: center; box-shadow: 0 4px 12px rgba(255,144,194,0.2); display: flex; flex-direction: column; justify-content: center;">
-      <h3 style="margin-bottom: 6px; font-size: 16px; color: #fff;">Курс по похудению</h3>
-      <p style="font-size: 13px; color: #ddd;">Тренажёры + домашние тренировки</p>
-      <p style="font-size: 20px; font-weight: bold; margin-top: 10px; color: #fff;">5 500 ₽</p>
+  <div class="carousel">
+    <div class="card">
+      <h3>Курс по похудению</h3>
+      <p>Тренажёры + домашние тренировки</p>
+      <p class="price">5 500 ₽</p>
     </div>
-    <div style="min-width: 240px; flex-shrink: 0; background: rgba(255,255,255,0.08); border-radius: 14px; padding: 16px 12px; scroll-snap-align: center; text-align: center; box-shadow: 0 4px 12px rgba(255,144,194,0.2); display: flex; flex-direction: column; justify-content: center;">
-      <h3 style="margin-bottom: 6px; font-size: 16px; color: #fff;">Курс + Консультация</h3>
-      <p style="font-size: 13px; color: #ddd;">Поддержка и ответы на вопросы</p>
-      <p style="font-size: 20px; font-weight: bold; margin-top: 10px; color: #fff;">12 500 ₽</p>
+    <div class="card">
+      <h3>Курс + Консультация</h3>
+      <p>Поддержка и ответы на вопросы</p>
+      <p class="price">12 500 ₽</p>
     </div>
-    <div style="min-width: 240px; flex-shrink: 0; background: rgba(255,255,255,0.08); border-radius: 14px; padding: 16px 12px; scroll-snap-align: center; text-align: center; box-shadow: 0 4px 12px rgba(255,144,194,0.2); display: flex; flex-direction: column; justify-content: center;">
-      <h3 style="margin-bottom: 6px; font-size: 16px; color: #fff;">Курс + Личное ведение</h3>
-      <p style="font-size: 13px; color: #ddd;">Питание, КБЖУ, разбор, отчёт</p>
-      <p style="font-size: 20px; font-weight: bold; margin-top: 10px; color: #fff;">20 000 ₽</p>
+    <div class="card">
+      <h3>Курс + Личное ведение</h3>
+      <p>Питание, КБЖУ, разбор, отчёт</p>
+      <p class="price">20 000 ₽</p>
     </div>
   </div>
 
   <div style="text-align:center;">
     <a href="https://t.me/Roza_RS_Bot" class="btn" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
-      Приобрести канал
+      <i class="bi bi-telegram"></i> Приобрести канал
     </a>
   </div>
 </section>
-  <!-- Приватный канал -->
-  <section>
-    <h2>🌶️ Приватный канал</h2>
-    <p>Там — всё, что не попадает в соцсети:</p>
-    <ul>
-      <li>🎀 Закулисье и будни</li>
-     <li>🧠 Микроинструкции и мотивация</li>
-    </ul>
-    <div style="text-align:center;">
-      <a href="https://t.me/+FT2_fUZFerQ2ZTli" class="btn" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
-        Войти в канал
-      </a>
-    </div>
-  </section>
 
-  <!-- Подвал -->
-  <footer>
-    © Roza, все права защищены · <a href="#top">Наверх</a>
-  </footer>
+<!-- Подвал -->
+<footer>
+  © Roza, все права защищены · <a href="#top">Наверх</a>
+</footer>
 
 </body>
 </html>
