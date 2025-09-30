@@ -59,6 +59,13 @@
       animation: pulse 2.5s infinite;
     }
     .insta-circle img { width: 22px; height: 22px; }
+    /* стиль для иконки-розы */
+    .insta-circle i {
+      font-size: 22px;
+      color: #ff90c2;
+      line-height: 1;
+      filter: drop-shadow(0 0 4px rgba(255,144,194,0.6));
+    }
 
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
@@ -188,10 +195,13 @@
         <img src="avatar.JPG" alt="Roza">
       </div>
       <div class="social-icons">
-        <a href="https://www.instagram.com/rrrrrrrrrrrrrrrrrrrrr_n" target="_blank" class="insta-circle"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram"></a>
-        <a href="https://t.me/Roza_RS_Bot" target="_blank" class="insta-circle"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram"></a>
+        <!-- Роза вместо Instagram-иконки -->
+        <a href="https://www.donationalerts.com/r/roza_nuts" target="_blank" class="insta-circle" aria-label="Instagram">
+          <i class="bi bi-flower1"></i>
+        </a>
+        <a href="https://t.me/+bHfn0W83YSkwY2My" target="_blank" class="insta-circle"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram"></a>
         <!-- Twitch вместо TikTok -->
-        <a href="https://www.twitch.tv/твой_ник" target="_blank" class="insta-circle">
+        <a href="https://www.twitch.tv/roza_nuts" target="_blank" class="insta-circle">
           <img src="https://cdn-icons-png.flaticon.com/512/3670/3670157.png" alt="Twitch">
         </a>
       </div>
@@ -260,9 +270,9 @@
       <p class="modal-intro">Для оплаты в рублях</p>
       <div class="tab-content active" id="tab-link">
         <div style="text-align:center;">
-     <a class="btn" href="https://messenger.online.sberbank.ru/sl/PKOdouHQWagQERHcw" target="_blank">
-  <i class="bi bi-gift"></i> Оплатить по ссылке
-</a>
+          <a class="btn" href="https://messenger.online.sberbank.ru/sl/PKOdouHQWagQERHcw" target="_blank">
+            <i class="bi bi-gift"></i> Оплатить по ссылке
+          </a>
         </div>
       </div>
       <div class="tab-content" id="tab-crypto">
